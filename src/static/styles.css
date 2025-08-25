@@ -1,0 +1,30 @@
+/* Unicoder for Chrome - コンテンツスクリプト用スタイル */
+.unicoder-converted {
+  border-radius: 3px;
+  border: 1px dotted #2e2e2e;
+  margin: -1px;
+}
+
+.blob-code-addition .unicoder-converted {
+  border-color: #4CAF50;
+}
+
+.blob-code-deletion .unicoder-converted {
+  border-color: #E57373;
+}
+
+/* ダークテーマ対応 */
+[data-color-mode="dark"] .unicoder-converted,
+.theme-dark .unicoder-converted {
+  border-color: #DDDDDD;
+}
+
+[data-color-mode="dark"] .blob-code-addition .unicoder-converted,
+.theme-dark .blob-code-addition .unicoder-converted {
+  border-color: #66BB6A;
+}
+
+[data-color-mode="dark"] .blob-code-deletion .unicoder-converted,
+.theme-dark .blob-code-deletion .unicoder-converted {
+  border-color: #bb6666 ;
+}

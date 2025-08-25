@@ -1,0 +1,61 @@
+{
+  "manifest_version": 3,
+  "name": "github-unicoder",
+  "version": "0.0.1",
+  "description": "GitHub上のUnicodeエスケープシーケンスを読みやすいテキストに変換して表示するChrome拡張",
+  "scripts": {
+    "build": "npm run clean && tsc && npm run copy-static",
+    "copy-static": "mkdir -p dist && cp -r src/static/* dist/",
+    "watch": "tsc --watch",
+    "clean": "rm -rf dist",
+    "dev": "npm run build && npm run watch",
+    "prepublish": "node ./scripts/sync-version.js package.json src/static/manifest.json",
+    "publish": "npm run build",
+    "postpublish": "rm -rf github-unicoder* && cp -r dist github-unicoder && zip -r github-unicoder.zip github-unicoder"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.268",
+    "typescript": "^5.0.0"
+  },
+  "keywords": [
+    "chrome-extension",
+    "unicode",
+    "github",
+    "javascript",
+    "typescript"
+  ],
+  "author": {
+    "name": "mob-sakai",
+    "email": "sakai861104@gmail.com",
+    "url": "https://github.com/mob-sakai"
+  },
+  "license": "MIT",
+  "release": {
+    "branches": [
+      "main"
+    ],
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      [
+        "@semantic-release/npm",
+        {
+          "npmPublish": false
+        }
+      ],
+      [
+        "@semantic-release/exec",
+        {
+          "prepareCmd": "npm ci && npm run publish"
+        }
+      ],
+      "@semantic-release/git",
+      [
+        "@semantic-release/github",
+        {
+          "assets": "./github-unicoder.zip"
+        }
+      ]
+    ]
+  }
+}
