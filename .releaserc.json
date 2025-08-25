@@ -1,0 +1,27 @@
+{
+  "branches": [
+    "main"
+  ],
+  "plugins": [
+    "@semantic-release/commit-analyzer",
+    "@semantic-release/release-notes-generator",
+    [
+      "@semantic-release/npm",
+      {
+        "npmPublish": false
+      }
+    ],
+    [
+      "@semantic-release/exec",
+      {
+        "prepareCmd": "npm i && npm run build && zip -r github-unicoder-${nextRelease.version}.zip dist"
+      }
+    ],
+    [
+      "@semantic-release/github",
+      {
+        "assets": "./*.zip"
+      }
+    ]
+  ]
+}

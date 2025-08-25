@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "GitHub Unicoder",
+  "version": "1.0.0",
+  "description": "GitHub上のUnicodeエスケープシーケンスを読みやすいテキストに変換して表示するChrome拡張",
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://github.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://github.com/*"],
+      "js": ["content.js"],
+      "css": ["styles.css"],
+      "run_at": "document_end"
+    }
+  ],
+  "action": {
+    "default_title": "GitHub Unicoder - 直接クリックでON/OFF切り替え"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "icons": {
+    "128": "icons/icon128.png"
+  }
+}

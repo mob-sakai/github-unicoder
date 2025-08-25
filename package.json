@@ -1,0 +1,29 @@
+{
+  "name": "github-unicoder",
+  "version": "1.0.0",
+  "description": "GitHub上のUnicodeエスケープシーケンスを読みやすいテキストに変換して表示するChrome拡張",
+  "scripts": {
+    "build": "npm run clean && tsc && npm run copy-static",
+    "copy-static": "mkdir -p dist && cp -r src/static/* dist/ 2>/dev/null || true && cp manifest.json dist/",
+    "watch": "tsc --watch",
+    "clean": "rm -rf dist",
+    "dev": "npm run build && npm run watch"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.268",
+    "typescript": "^5.0.0"
+  },
+  "keywords": [
+    "chrome-extension",
+    "unicode",
+    "github",
+    "javascript",
+    "typescript"
+  ],
+  "author": {
+    "name": "mob-sakai",
+    "email": "sakai861104@gmail.com",
+    "url": "https://github.com/mob-sakai"
+  },
+  "license": "MIT"
+}
