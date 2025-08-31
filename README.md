@@ -38,7 +38,7 @@ GitHub上のUnicodeエスケープシーケンスと16進エスケープシー�
 4. 右上の「デベロッパー モード」をONにして、「パッケージされていない拡張機能を読み込む」をクリックし、先ほどのフォルダを指定します。  
    ![](https://github.com/mob-sakai/mob-sakai/releases/download/docs/1756523281578.png)
 
-5. 拡張機能がインストールされたことを確認します。
+5. 拡張機能がインストールされたことを確認します。  
    ![](https://github.com/mob-sakai/mob-sakai/releases/download/docs/1756613853828.png)
 
 6. [使い方](#-使い方)セクションを参照して、正しく動作することを確認します。
@@ -50,10 +50,32 @@ GitHub上のUnicodeエスケープシーケンスと16進エスケープシー�
 - GitHub.com にて、コード内にUnicodeエスケープシーケンスや16進エスケープシーケンスが含まれている場合、自動的に変換されます。
   - https://github.com/mob-sakai/github-unicoder/blob/main/test.txt
     ![](https://github.com/mob-sakai/mob-sakai/releases/download/docs/1756524022409.png)
-  - https://github.com/mob-sakai/github-unicoder/pull/1/files?diff=split&w=0
+  - https://github.com/mob-sakai/github-unicoder/pull/2/files?diff=split&w=0
     ![](https://github.com/mob-sakai/mob-sakai/releases/download/docs/1756524543600.png)
 - 拡張機能からアイコンをクリックして自動変換をON/OFFにできます。  
   ![](https://github.com/mob-sakai/mob-sakai/releases/download/docs/1756523743318.png)
+
+<br><br>
+
+## 🛠️ 開発
+
+### ローカルビルド
+
+```sh
+# 依存関係のインストール
+npm install
+
+# ビルド
+npm run build
+
+# ファイルの監視と自動ビルド
+npm run dev
+```
+
+### ローカルビルドのインストール
+
+- `dist` フォルダをChromeの拡張機能ページから読み込みます。
+- 再ビルドするたびに、拡張機能ページで「更新」ボタンをクリックして最新のコードを反映します。
 
 <br><br>
 
