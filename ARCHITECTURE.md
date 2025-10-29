@@ -139,6 +139,7 @@ Process:
 **対象セレクタ**:
 - `.blob-code-inner` - GitHubコード行
 - `.react-file-line` - React版GitHubファイル行
+- `.diff-text-inner` - GitHub差分表示内のテキスト行
 
 ## データフロー
 

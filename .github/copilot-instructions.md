@@ -75,7 +75,7 @@ Unityプロジェクトなどでは、マルチバイト文字列が自動的に
   - 重複処理防止（`processedElements` Set使用）
   - デバウンス処理（100ms）
   - 選択的要素検索
-- **セレクタ**: GitHubの特定クラスのみ対象（`.blob-code-inner`, `.react-file-line`）
+- **セレクタ**: GitHubの特定クラスのみ対象（`.blob-code-inner`, `.react-file-line`, `.diff-text-inner`）
 - **変更検知**: `MutationObserver`で効率的にDOM変更を監視
 
 ## 重要な設計パターン
