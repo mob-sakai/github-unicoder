@@ -39,7 +39,7 @@ class UnicoderForGitHub {
 
   private convertUnicodeEscapes(): void {
     // GitHubのコードブロックを対象とする
-    const codeElements = document.querySelectorAll('.blob-code-inner, .react-file-line');
+    const codeElements = document.querySelectorAll('.blob-code-inner, .react-file-line, .diff-text-inner');
 
     codeElements.forEach((element) => {
       // 既に処理済みの要素はスキップ
@@ -86,7 +86,7 @@ class UnicoderForGitHub {
           const hasNewCodeElements = Array.from(mutation.addedNodes).some(node => {
             if (node.nodeType === Node.ELEMENT_NODE) {
               const element = node as Element;
-              return element.querySelector('.blob-code-inner, .react-file-line');
+              return element.querySelector('.blob-code-inner, .react-file-line, .diff-text-inner');
             }
             return false;
           });
