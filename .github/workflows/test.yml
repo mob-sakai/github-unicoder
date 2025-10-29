@@ -1,0 +1,58 @@
+name: 🧪 Test
+run-name: 🧪 Test (${{ github.ref_name }})
+
+on:
+  push:
+    branches:
+      - develop*
+    paths:
+      - '**/*.ts'
+      - '**/*.json'
+  pull_request:
+    branches:
+      - develop*
+    paths:
+      - '**/*.ts'
+      - '**/*.json'
+
+jobs:
+  test:
+    name: 🧪 Test (${{ github.ref_name }})
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🚚 Checkout (${{ github.ref_name }})
+        uses: actions/checkout@v5
+
+      - name: 📥 Install dependencies
+        run: npm ci
+
+      - name: 🔨 Build extension
+        run: npm run build
+
+      - name: ✅ Validate build output
+        run: |
+          # Check if dist directory exists
+          if [ ! -d "dist" ]; then
+            echo "❌ dist directory not found" | tee -a $GITHUB_STEP_SUMMARY
+            exit 1
+          fi
+
+          # Check if manifest.json exists
+          if [ ! -f "dist/manifest.json" ]; then
+            echo "❌ dist/manifest.json not found" | tee -a $GITHUB_STEP_SUMMARY
+            exit 1
+          fi
+
+          # Check if content.js exists
+          if [ ! -f "dist/content.js" ]; then
+            echo "❌ dist/content.js not found" | tee -a $GITHUB_STEP_SUMMARY
+            exit 1
+          fi
+
+          # Check if background.js exists
+          if [ ! -f "dist/background.js" ]; then
+            echo "❌ dist/background.js not found" | tee -a $GITHUB_STEP_SUMMARY
+            exit 1
+          fi
+
+          echo "✅ Build validation passed" | tee -a $GITHUB_STEP_SUMMARY
