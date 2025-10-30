@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "github-unicoder",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "GitHub上のUnicodeエスケープシーケンスを読みやすいテキストに変換して表示するChrome拡張",
   "scripts": {
     "build": "npm run clean && tsc && npm run copy-static",
