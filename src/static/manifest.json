@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "GitHub Unicoder",
-  "version": "0.0.1-dev",
+  "version": "1.0.0",
   "description": "GitHub上のUnicodeエスケープシーケンスを読みやすいテキストに変換して表示するChrome拡張",
   "permissions": [
     "activeTab",
